@@ -1,0 +1,21 @@
+{
+  "name": "ArdeliaBot",
+  "version": "1.0.0",
+  "description": "Simple command bot for Felanora",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "bcv93",
+  "license": "ISC",
+  "dependencies": {
+    "bufferutil": "^3.0.3",
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.0.0",
+    "enmap": "^4.0.12",
+    "micro": "latest",
+    "npm": "^6.4.1"
+  }
+}

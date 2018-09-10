@@ -1,0 +1,47 @@
+{
+ "hug": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/445292315465089035/487346952560836608/HugCommand-1.gif",
+   "https://cdn.discordapp.com/attachments/445292315465089035/487314758635225088/HugCommand-5.gif",
+   "https://cdn.discordapp.com/attachments/445292315465089035/487584523765415936/HugCommand-10.gif",
+   "https://cdn.discordapp.com/attachments/445292315465089035/487585279599706113/HugCommand-11.gif",
+   "test"
+  ],
+  "messageToUser": [
+   "The",
+   "great",
+   "$(1)",
+   "gives",
+   "a",
+   "huge",
+   "hug",
+   "to",
+   "$(2)",
+   "!"
+  ]
+ },
+ "kiss": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/445292315465089035/486887041993539598/KissCommand-0.gif"
+  ],
+  "messageToUser": [
+   "kissssssss"
+  ]
+ },
+ "test": {
+  "linkfile": [],
+  "messageToUser": "test"
+ },
+ "test2": {
+  "linkfile": [],
+  "messageToUser": "test"
+ },
+ "test3": {
+  "linkfile": [],
+  "messageToUser": "3"
+ },
+ "test4": {
+  "linkfile": [],
+  "messageToUser": "4"
+ }
+}
