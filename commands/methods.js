@@ -92,11 +92,11 @@ module.exports = function(){
     let outputString = "";
     argsArray.forEach(word => {
       if(word === '$(1)'){
-        outputString=outputString + "**" + messageObj.author.displayName + "** ";
+        outputString=outputString + "**" + messageObj.author.username + "** ";
       return;
       }
       if(word === '$(2)' && messageObj.mentions.members.size !== 0){
-        outputString = outputString +"**" + messageObj.mentions.members.first().user.displayName + "** ";
+        outputString = outputString +"**" + messageObj.mentions.members.first().user.username + "** ";
       return;
       }
       if (word === '$(2)' && messageObj.mentions.members.size === 0) {
