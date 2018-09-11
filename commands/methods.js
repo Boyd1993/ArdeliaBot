@@ -92,6 +92,7 @@ module.exports = function(){
     let outputString = "";
     argsArray.forEach(word => {
       if(word === '$(1)'){
+
         outputString=outputString + "**" + messageObj.author.username + "** ";
       return;
       }
