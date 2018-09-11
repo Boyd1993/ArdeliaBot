@@ -6,7 +6,7 @@ require('http').createServer().listen(3000)
 
 const client = new Discord.Client();
 console.log("Ardelia is now online!");
-
+client.on('error', log.error);
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 
 fs.readdir("./events/", (err, files) => {

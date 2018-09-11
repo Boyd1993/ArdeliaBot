@@ -141,7 +141,12 @@
   "linkfile": [
    "https://cdn.discordapp.com/attachments/488653411034857473/488749244233023491/cheer.gif",
    "https://cdn.discordapp.com/attachments/488653411034857473/488749249509457930/cheer1.gif",
-   "https://cdn.discordapp.com/attachments/488653411034857473/488749257470378004/cheer2.gif"
+   "https://cdn.discordapp.com/attachments/488653411034857473/488749257470378004/cheer2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052392344780800/cheer7.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052360618934273/cheer6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052325936234516/cheer5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052301894615050/cheer4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052282500022273/cheer3.gif"
   ],
   "messageToUser": [
    "$(1)",
@@ -164,7 +169,10 @@
    "https://cdn.discordapp.com/attachments/488653411034857473/488750617628639252/hello3.gif",
    "https://cdn.discordapp.com/attachments/488653411034857473/488750601056944138/hello2.gif",
    "https://cdn.discordapp.com/attachments/488653411034857473/488750597978193925/hello1.gif",
-   "https://cdn.discordapp.com/attachments/488653411034857473/488750577950654464/hello.gif"
+   "https://cdn.discordapp.com/attachments/488653411034857473/488750577950654464/hello.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052725028454410/hello9.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052713888382986/hello8.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052701976428555/hello7.gif"
   ],
   "messageToUser": [
    "$(1)",
@@ -191,7 +199,11 @@
    "https://cdn.discordapp.com/attachments/488653411034857473/488751448138448906/kiss3.gif",
    "https://cdn.discordapp.com/attachments/488653411034857473/488751440358146048/kiss2.gif",
    "https://cdn.discordapp.com/attachments/488653411034857473/488751425258520576/kiss1.gif",
-   "https://cdn.discordapp.com/attachments/488653411034857473/488751409047666688/kiss.gif"
+   "https://cdn.discordapp.com/attachments/488653411034857473/488751409047666688/kiss.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053022253481984/kiss96.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053018298515466/kiss95.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052969061580831/kiss94.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489052941291094016/kiss93.gif"
   ],
   "messageToUser": [
    "$(1)",
@@ -234,6 +246,193 @@
    "it.",
    "(",
    "‘-‘)ﾉ)`-‘)"
+  ]
+ },
+ "cheek": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054055180533781/cheek6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054051020046342/cheek5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054023266074627/cheek4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053995034476544/cheek3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053983558860811/cheek1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053967423242252/cheek0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489053954190344202/cheek.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "pinches",
+   "$(2)",
+   "'s",
+   "cheeks!",
+   "Ehehe",
+   "c'mere",
+   "ლ(｀∀´ლ)"
+  ]
+ },
+ "cry": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054919186317342/cry90.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054898089099264/cry9.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054891558436884/cry8.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054882750529544/cry7.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054855189757973/cry6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054826450255902/cry5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054805835120678/cry4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054773505556490/cry3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054767251980288/cry2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054764273893397/cry1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489054764232081408/cry.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055400075722777/cry995.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055377137336330/cry994.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055369402777610/cry993.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055359454150668/cry992.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055325140549642/cry991.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055301668962323/cry990.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055296854032395/cry99.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055284883488778/cry98.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055270597689350/cry97.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055233486618644/cry96.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055213441908766/cry95.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055212355584000/cry94.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055194680786944/cry93.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055177911959552/cry92.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489055165064806410/cry91.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "is",
+   "sad.",
+   "Who",
+   "made",
+   "them",
+   "cry!!!",
+   "(/□＼*)・゜"
+  ]
+ },
+ "divorce": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489056609746550784/divorce2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489056556269305856/divorce1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489056521716760606/divorce0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489056500254244864/divorce.gif",
+   "https://media.discordapp.net/attachments/445292315465089035/489033438276354048/DivorceCommand-0.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "wants",
+   "to",
+   "divorce",
+   "$(2)",
+   ".",
+   "Enough",
+   "of",
+   "you!",
+   "ヾ(",
+   "･`⌓´･)ﾉﾞ"
+  ]
+ },
+ "love": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489058208317571083/love92.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489058132782481418/love93.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489058042554482717/love91.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489058017103577102/love90.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489058000158457866/love9.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057974053240852/love8.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057956017733632/love7.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057908911243275/love6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057887759499279/love5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057862316851230/love4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057829001625600/love3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057809858691072/love2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057767517192192/love1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057738689740800/love0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489057713393893393/love.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "loves",
+   "$(2)",
+   "so",
+   "much!",
+   "Aww",
+   "(´⌣`ʃƪ)"
+  ]
+ },
+ "pan": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059207228948502/pan5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059160458264579/pan4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059146247962624/pan3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059130632306709/pan2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059117835485185/pan1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059113452437506/pan0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059037187670016/pan.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "just",
+   "hits",
+   "$(2)",
+   "with",
+   "a",
+   "pan.",
+   "OI!",
+   "(╬",
+   "Ò",
+   "‸",
+   "Ó)"
+  ]
+ },
+ "pout": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060098237267969/pout90.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060091417460747/pout9.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060060341862410/pout8.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060051542081536/pout7.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060034471526400/pout6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060002150088705/pout5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059997221650432/pout4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059983116206080/pout3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059963986116628/pout2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059950698692608/pout1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059942003900419/pout0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489059930054197248/pout.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "pouts",
+   "at",
+   "$(2)",
+   ".",
+   "Huh~!",
+   "(￣ヘ￣)"
+  ]
+ },
+ "senpai": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061099879006208/senpai8.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061061316837386/senpai7.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061053741662211/senpai6.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061034099736578/senpai5.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061020237692929/senpai4.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489061011299631104/senpai3.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060989820469280/senpai2.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060976222797825/senpai1.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060964021567499/senpai0.gif",
+   "https://cdn.discordapp.com/attachments/488653411034857473/489060959713755136/senpai.gif"
+  ],
+  "messageToUser": [
+   "$(1)",
+   "wants",
+   "to",
+   "get",
+   "noticed",
+   "by",
+   "$(2)",
+   ".",
+   "Please",
+   "(人´ω｀*)"
   ]
  }
 }
