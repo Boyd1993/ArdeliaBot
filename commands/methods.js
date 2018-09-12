@@ -17,6 +17,13 @@ module.exports = function(){
     else{return toReturn;}
   };
 
+  this.getNewConfigFile = function(configFile,setting,newValue){
+
+    configFile[setting] = newValue;
+
+    return configFile;
+  }
+
   this.getRoleNameIdList = function(roleList){
     let roleIdNameList ={};
     roleList.tap(role => {
@@ -32,7 +39,26 @@ module.exports = function(){
     return roleId;
   };
 
+  this.CheckSettingExist = function(configFile,setting){
+      let check = false;
+        Object.keys(configFile).forEach(function(settings, i){
 
+          if(settings === setting){check = true;}
+
+        })
+      return check;
+    }
+
+this.CheckFileExcist = function(files,name){
+      var isTrue = false;
+      files.forEach(file => {
+        if (name + '.js' == file) {
+          isTrue = true;
+          return isTrue;
+        }})
+
+        return isTrue;
+      }
 
   this.hasRole = function(user,permittedList){
     let userRoles = user.roles.keyArray();

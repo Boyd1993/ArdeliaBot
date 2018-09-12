@@ -10,17 +10,6 @@ exports.run = (client, message, args, guildConfig) => {
     let gifsPath = "../savefiles/"+ message.guild.id+ "/gifs.json"
     const gifs = require(gifsPath);
 
-    function CheckFileExcist(files,name){
-      var isTrue = false;
-      files.forEach(file => {
-        if (name + '.js' == file) {
-          isTrue = true;
-          return isTrue;
-        }})
-
-        return isTrue;
-      }
-
       fs.readdir(filePath, (err, files) => {
         if (err) return console.error(err);
         if(!CheckFileExcist(files,botCommName)){
