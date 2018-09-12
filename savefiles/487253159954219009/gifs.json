@@ -43,5 +43,11 @@
  "test4": {
   "linkfile": [],
   "messageToUser": "4"
+ },
+ "linuxtest": {
+  "linkfile": [],
+  "messageToUser": [
+   "go"
+  ]
  }
 }
