@@ -119,11 +119,11 @@ module.exports = function(){
       argsArray.forEach(word => {
         if(word === '$(1)'){
 
-          outputString=outputString + "**" + messageObj.author.username + "** ";
+          outputString=outputString + "**" + messageObj.author.displayName + "** ";
           return;
         }
         if(word === '$(2)' && messageObj.mentions.members.size !== 0){
-          outputString = outputString +"**" + messageObj.mentions.members.first().user.username + "** ";
+          outputString = outputString +"**" + messageObj.mentions.members.first().user.displayName + "** ";
           return;
         }
         if (word === '$(2)' && messageObj.mentions.members.size === 0) {
