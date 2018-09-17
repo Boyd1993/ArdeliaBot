@@ -1,1 +1,15 @@
-{}
+{
+ "hug": {
+  "linkfile": [
+   "https://cdn.discordapp.com/attachments/445292315465089035/487585279599706113/HugCommand-11.gif"
+  ],
+  "messageToUser": [
+   "This",
+   "is",
+   "a",
+   "test",
+   "$(1)",
+   "$(2)"
+  ]
+ }
+}
