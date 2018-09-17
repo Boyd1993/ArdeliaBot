@@ -40,99 +40,125 @@ module.exports = function(){
   };
 
   this.CheckSettingExist = function(configFile,setting){
-      let check = false;
-        Object.keys(configFile).forEach(function(settings, i){
+    let check = false;
+    Object.keys(configFile).forEach(function(settings, i){
 
-          if(settings === setting){check = true;}
+      if(settings === setting){check = true;}
 
-        })
-      return check;
+    })
+    return check;
+  }
+
+  this.CheckFileExcist = function(files,name){
+    var isTrue = false;
+    files.forEach(file => {
+      if (name + '.js' == file) {
+        isTrue = true;
+        return isTrue;
+      }})
+
+      return isTrue;
     }
 
-this.CheckFileExcist = function(files,name){
-      var isTrue = false;
-      files.forEach(file => {
-        if (name + '.js' == file) {
-          isTrue = true;
-          return isTrue;
-        }})
+    this.hasRole = function(user,permittedList){
+      let userRoles = user.roles.keyArray();
+      let toReturn = false;
+      userRoles.forEach(role => {
+        if(permittedList.includes(role)){
+          toReturn = true;
+        }
+      })
+      return toReturn;
+    };
 
-        return isTrue;
-      }
+    this.listModeratorRoles = function(configFile){
+      let roleList = [];
+      roleList = configFile['moderatorRoles'];
+      return roleList
+    };
 
-  this.hasRole = function(user,permittedList){
-    let userRoles = user.roles.keyArray();
-    let toReturn = false;
-    userRoles.forEach(role => {
-      if(permittedList.includes(role)){
-        toReturn = true;
-      }
-    })
-    return toReturn;
-  };
-
-  this.listModeratorRoles = function(configFile){
-    let roleList = [];
-    roleList = configFile['moderatorRoles'];
-    return roleList
-  };
-
-  this.listEditorRoles = function(configFile){
-    let roleList = [];
-    roleList = configFile['editorRoles'];
-    return roleList
-  };
-  this.isEditor = function(user,configFile){
-    let toReturn = false;
+    this.listEditorRoles = function(configFile){
+      let roleList = [];
+      roleList = configFile['editorRoles'];
+      return roleList
+    };
+    this.isEditor = function(user,configFile){
+      let toReturn = false;
       if(user.hasPermission('ADMINISTRATOR') || hasRole(user, listEditorRoles(configFile)) || hasRole(user, listModeratorRoles(configFile))){
         toReturn = true;
         return toReturn;
       }
       else{return toReturn;}
-  }
+    }
 
-  this.isModerator = function(user,configFile){
-    let toReturn = false;
+    this.isModerator = function(user,configFile){
+      let toReturn = false;
       if(user.hasPermission('ADMINISTRATOR') || hasRole(user, listModeratorRoles(configFile))){
         toReturn = true;
         return toReturn;
       }
       else{return toReturn;}
-  }
+    }
 
-  this.isAdmin = function(user){
-    let toReturn = false;
+    this.isAdmin = function(user){
+      let toReturn = false;
       if(user.hasPermission('ADMINISTRATOR')){
         toReturn = true;
         return toReturn;
       }
       else{return toReturn;}
-  }
-  this.delElement = function(array,toDel){
-    let arrayDelId = array.indexOf(toDel);
-    array.splice(arrayDelId,1);
-    return array;
-  }
+    }
+    this.delElement = function(array,toDel){
+      let arrayDelId = array.indexOf(toDel);
+      array.splice(arrayDelId,1);
+      return array;
+    }
 
-  this.lineGen = function(argsArray,messageObj){
-    let outputString = "";
-    argsArray.forEach(word => {
-      if(word === '$(1)'){
+    this.lineGen = function(argsArray,messageObj){
+      let outputString = "";
+      argsArray.forEach(word => {
+        if(word === '$(1)'){
 
-        outputString=outputString + "**" + messageObj.author.username + "** ";
-      return;
-      }
-      if(word === '$(2)' && messageObj.mentions.members.size !== 0){
-        outputString = outputString +"**" + messageObj.mentions.members.first().user.username + "** ";
-      return;
-      }
-      if (word === '$(2)' && messageObj.mentions.members.size === 0) {
-        outputString = outputString + " "
+          outputString=outputString + "**" + messageObj.member.displayName + "** ";
           return;
-      }
-      outputString = outputString + word + " ";
-    })
+        }
+        if(word === '$(2)' && messageObj.mentions.members.size !== 0){
+          outputString = outputString +"**" + messageObj.mentions.members.first().displayName + "** ";
+          return;
+        }
+        if (word === '$(2)' && messageObj.mentions.members.size === 0) {
+          outputString = outputString + " "
+          return;
+        }
+        outputString = outputString + word + " ";
+      })
       return outputString;
-  }
+    }
 
-}
+    this.writeNewSaveFile = function(guildId, fileSystem){
+      fileSystem.mkdir('../ArdeliaBot/savefiles/'+ guildId, function(err) {
+        if (err) {
+          if (err.code == 'EEXIST') console.log('already exists');// ignore the error if the folder already exists
+          else console.error(err); // something else went wrong
+        }
+        else {
+          var config ={prefix : "!", embedcolor:"3447003",moderatorRoles:[], editorRoles:[]};
+          var gifs = {};
+          console.log('ping');
+          fileSystem.writeFile("../ArdeliaBot/savefiles/"+ guildId + "/config.json", JSON.stringify(config, null, ' '), (err) => console.error);
+          fileSystem.writeFile("../ArdeliaBot/savefiles/"+ guildId + "/gifs.json", JSON.stringify(gifs, null, ' '), (err) => console.error);
+          fileSystem.mkdir('../ArdeliaBot/savefiles/'+ guildId+'/commands', function(err) {
+            if (err) {
+              if (err.code == 'EEXIST') console.log('already exists');// ignore the error if the folder already exists
+              else console.error(err); // something else went wrong
+            }
+            else {
+              console.log('Folder commands created');} // successfully created folder
+            });
+            console.log('Folder created')
+            return config;
+          }; // successfully created folder
+          })
+        }
+
+      }
