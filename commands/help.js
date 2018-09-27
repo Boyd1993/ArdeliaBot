@@ -17,7 +17,12 @@ exports.run = (client, message, args, guildConfig) => {
       const fetchedMsgContent = messageToSend.content;
       message.author.send(fetchedMsgContent);
     })
+    channelWithText.fetchMessage("495015688822325259")
+    .then(messageToSend => {
+      const fetchedMsgContent = messageToSend.content;
+      message.author.send(fetchedMsgContent);
 
+    })
   }
   channelWithText.fetchMessage("488694365426941962")
   .then(messageToSend => {

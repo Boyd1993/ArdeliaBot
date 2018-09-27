@@ -1,7 +1,7 @@
 module.exports = (client, guild) => {
-
   const fs = require("fs");
-  require('../commands/methods.js')();
+  const paths = require('paths');
+  require(paths.join(__dirname,'..','commands', 'methods.js'))();
   writeNewSaveFile(guild.id,fs);
 
   };
