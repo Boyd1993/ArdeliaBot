@@ -1,4 +1,5 @@
 module.exports = function(){
+  const path = require('path');
 
   this.getRoleNames = function(roleList){
     let roleNames = [];
@@ -135,6 +136,48 @@ module.exports = function(){
       return outputString;
     }
 
+    this.isUrl = function(str)
+    {
+      regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+      if (regexp.test(str))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    this.linkSplitter = function(argsArray,messageObj){
+      let links = [];
+      let descriptions =[];
+      let description = [];
+      let setDescription = false;
+      argsArray.forEach(word => {
+        if(isUrl(word) && !setDescription){
+          links.push(word);
+          setDescription = true;
+          return;
+        }
+        if(setDescription && !isUrl(word) && word !== '>|<'){
+          description.push(word);
+          return;
+        }
+        if(word === '>|<'){
+          descriptions.push(description.splice(0,description.length));
+          return;
+        }
+        if (isUrl(word) && setDescription) {
+          links.push(word);
+          descriptions.push(description.splice(0,description.length));
+          return;
+        }
+      })
+      descriptions.push(description);
+      return [links,descriptions];
+    }
+
     this.writeNewSaveFile = function(guildId, fileSystem){
       fileSystem.mkdir('../ArdeliaBot/savefiles/'+ guildId, function(err) {
         if (err) {
@@ -143,11 +186,11 @@ module.exports = function(){
         }
         else {
           var config ={prefix : "!", embedcolor:"3447003",moderatorRoles:[], editorRoles:[]};
-          var gifs = {};
+          var botCommandFile = {};
           console.log('ping');
-          fileSystem.writeFile("../ArdeliaBot/savefiles/"+ guildId + "/config.json", JSON.stringify(config, null, ' '), (err) => console.error);
-          fileSystem.writeFile("../ArdeliaBot/savefiles/"+ guildId + "/gifs.json", JSON.stringify(gifs, null, ' '), (err) => console.error);
-          fileSystem.mkdir('../ArdeliaBot/savefiles/'+ guildId+'/commands', function(err) {
+          fileSystem.writeFile(path.join(__dirname,'..','savefiles', guildId , 'config.json'), JSON.stringify(config, null, ' '), (err) => console.error);
+          fileSystem.writeFile(path.join(__dirname,'..','savefiles', guildId,'botcommands.json'), JSON.stringify(botCommandFile, null, ' '), (err) => console.error);
+          fileSystem.mkdir(path.join(__dirname,'..','savefiles', guildId,'commands'), function(err) {
             if (err) {
               if (err.code == 'EEXIST') console.log('already exists');// ignore the error if the folder already exists
               else console.error(err); // something else went wrong
@@ -158,7 +201,47 @@ module.exports = function(){
             console.log('Folder created')
             return config;
           }; // successfully created folder
-          })
-        }
-
+        })
       }
+      this.splitInfoDescription = function(argsArray){
+        let descriptions =[];
+        let info = '';
+        let description = [];
+        let isInfo = false;
+        argsArray.forEach(arg =>{
+          if(arg === '<||>'){
+            descriptions.push(description.splice(0,description.length));
+            isInfo = true;
+            return;
+          }
+          if(arg === '>|<'){
+            descriptions.push(description.splice(0,description.length));
+            return;
+          }
+          if(isInfo){
+            info = info + arg + ' ' ;
+            return;
+          }
+          description.push(arg);
+        })
+        descriptions.push(description);
+        let outputArray = [descriptions,info];
+        return outputArray;
+      }
+
+      this.splitDescriptions = function(argsArray){
+        let descriptions =[];
+        let description = [];
+
+        argsArray.forEach(arg =>{
+          if(arg === '>|<'){
+            descriptions.push(description.splice(0,description.length));
+            return;
+          }
+          description.push(arg);
+        })
+        descriptions.push(description);
+        return descriptions;
+      }
+
+    }

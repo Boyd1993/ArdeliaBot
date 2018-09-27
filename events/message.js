@@ -6,7 +6,6 @@ module.exports = (client, message) => {
     const guildConfig = require("../savefiles/"+message.guild.id+"/config.json");
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(guildConfig.prefix) !== 0) return;
-
     const Enmap = require("enmap");
     const fs = require("fs");
     const guildComm = new Enmap();
@@ -38,6 +37,7 @@ module.exports = (client, message) => {
     }
   }
   catch (e) {
+    console.log(e);
     if (e.code === 'MODULE_NOT_FOUND'){
       const fs = require("fs");
       require('../commands/methods.js')();
