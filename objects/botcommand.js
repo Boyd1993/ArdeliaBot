@@ -28,7 +28,8 @@ function BotCommand(name, descriptions = [], botFiles = [] , permissionLevel = 0
 function addBotFiles(links, descriptions){
   for (var i = 0; i < links.length; i++){
     var link = links[i];
-    var newBotFile = new BotFile(link, descriptions);
+    var description = descriptions[i];
+    var newBotFile = new BotFile(link, description);
     this.botFiles.push(newBotFile);
   }
 }
@@ -232,5 +233,7 @@ function importBotFile(botFilesObj){
     this.botFiles.push(botFile);
   })
 }
+
+
 
 module.exports = BotCommand;

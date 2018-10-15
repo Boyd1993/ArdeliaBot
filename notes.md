@@ -1,3 +1,6 @@
+# 1.1.1
+-Fixed a bug where empty link messages where added to links. This resulted in empty messages to other users.
+
 # 1.1.0
 -Added the functionality to add multiple messages to a commands.
 -Added the functionality to add multiple messages to a link.
