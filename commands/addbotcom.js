@@ -14,7 +14,8 @@ exports.run = (client, message, args, guildConfig) => {
     let filePath = path.join(__dirname,'..', 'savefiles', message.guild.id,'commands')  ;
 
     let descrInfo = splitInfoDescription(args.slice(1,args.length));
-    let info = descrInfo[1];
+    var info = descrInfo[1];
+    if(info.length == 0){info = 'No information given aboout command' }
     let descr = descrInfo[0];
     if(typeof descr != "undefined" && descr != null && descr.length != null && descr.length > 0){
       fs.writeFile(path.join(filePath, botCommName +'.js'), toSave, (err) =>{

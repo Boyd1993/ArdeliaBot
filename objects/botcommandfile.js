@@ -14,7 +14,7 @@ function BotCommandFile(){
 }
 
 function add(name, descriptions, messageObj, guildConfig, info){
-  if (!this.has(name)){
+  if (!this.has(name) && name !== 'birthday'){
     let botCommand = new BotCommand(name, descriptions, undefined , undefined, info);
     this.botCommands[name] = botCommand;
     messageObj.channel.send('The command ' + guildConfig.prefix + name +' has been added!');
@@ -33,9 +33,6 @@ function addWithoutMessage(name, descriptions, botFiles){
 
 function del(name,messageObj, guildConfig){
   check = false;
-  console.log(Object.keys(this.botCommands));
-  console.log(name);
-  console.log(this)
   if (this.has(name)){
     delete this.botCommands[name];
     messageObj.channel.send('The command ' + guildConfig.prefix + name +' has been deleted!');

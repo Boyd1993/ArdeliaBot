@@ -1,6 +1,6 @@
 {
   "name": "ArdeliaBot",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Simple command bot for Felanora",
   "main": "index.js",
   "scripts": {
