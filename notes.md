@@ -1,3 +1,7 @@
+# 1.2.0
+- Added birthday module. For more info use !help birthday.
+- Made it such that only links are accepted that are directly directed towards an image.
+
 # 1.1.1
 -Fixed a bug where empty link messages where added to links. This resulted in empty messages to other users.
 
@@ -11,4 +15,3 @@
 
 -Checks if the savefile is made for a server. If not, will automatically make the files.  
 -Fixed a bug where the username was displayed instead of displayname.
-

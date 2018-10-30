@@ -141,7 +141,7 @@ exports.run = (client, message, args, guildConfig) => {
     }
 
     else if(args[1] === 'linkmessagelist'){
-      botCommands.botCommands[wantedCommand].botFileDescriptionList(message);
+      botCommands.botCommands[wantedCommand].botFileDescriptionList(message, client);
     }
 
     else if(args[1] === 'list'){

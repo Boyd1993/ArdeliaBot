@@ -99,7 +99,7 @@ function delDescriptions(IDs){
 function chooseDescription(id = -1){
   if(id >= -1 && id < this.descriptions.length && !isNaN(id)){
     if(id === -1){
-      let randId = Math.floor(Math.random() * Math.floor(this.descriptions.length));
+      let randId = Math.floor(Math.random() * this.descriptions.length);
       let description = this.descriptions[randId];
       return description;
     }
@@ -118,7 +118,7 @@ function chooseDescription(id = -1){
 function chooseLinkDescription(id = -1, fileDescrId = -1, descrId = -1){
   if(id >= -1 && id < this.botFiles.length && !isNaN(id)){
     if(id === -1){
-      let randId = Math.floor(Math.random() * Math.floor(this.botFiles.length));
+      let randId = Math.floor(Math.random() * this.botFiles.length);
       let link = this.botFiles[randId].link;
       let description = this.botFiles[randId].chooseDescription();
       if(description === -2){
@@ -171,18 +171,21 @@ function chooseLinkDescription(id = -1, fileDescrId = -1, descrId = -1){
   }
 }
 
-function botFileDescriptionList(messageObj){
-  const embed = new Discord.RichEmbed();
-  const embedArray = [embed];
+function botFileDescriptionList(messageObj,client){
+  var list = "";
+  client.user.settings.inlineEmbedMedia = false;
   this.botFiles.forEach(function(botFile,i) {
-    embedArray[i].setTitle('Message list of link (ID: '+ i+'): ' + botFile.link );
+    if (list.length > 800){
+      messageObj.author.send(list);
+      list = '';
+    }
+    list = list + 'Message list of link (ID: '+ i+'): <' + botFile.link +'>\n';
     botFile.descriptions.forEach(function(description,j) {
-      embedArray[i].addField(j,'Message: '+ description.join(' '));
+      list = list +'- '+ j + ': '+ description.join(' ') + '\n';
     })
-    embedArray.push(new Discord.RichEmbed());
-    messageObj.author.send(embedArray[i]);
   })
-
+    messageObj.author.send(list);
+    client.user.settings.inlineEmbedMedia = true;
 }
 
 function descriptionsList(){
@@ -190,7 +193,7 @@ function descriptionsList(){
   let list = '';
   this.descriptions.forEach(function(message,i) {
     list =  list + i + ': ' + message.join(' ') + '\n';
-    if (list.length > 800){
+    if (list.length > 1400){
       listArray.push(list);
       list = '';
     }
