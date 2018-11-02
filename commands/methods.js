@@ -1,6 +1,21 @@
 module.exports = function(){
   const path = require('path');
 
+  this.validDate = function(day, month, year){
+    let check = false;
+    if(!isNaN(day) && day > 0 && day <= 31 ){
+
+      if(!isNaN(month) && month > 0 && month <= 12){
+        let date = new Date();
+
+        if(!isNaN(year) && (year > 1900 && year <= date.getUTCFullYear()) || year == undefined){
+          check = true;
+        }
+      }
+    }
+    return check;
+  }
+
   this.getRoleNames = function(roleList){
     let roleNames = [];
     roleList.tap(role => {
@@ -149,13 +164,20 @@ module.exports = function(){
     }
   }
 
+  this.getChannel = function(channelID, messageObj){
+    let channels = messageObj.guild.channels;
+    let channel = channels.get(channelID);
+
+    return channel;
+  }
+
   this.linkSplitter = function(argsArray,messageObj){
     let links = [];
     let descriptions =[];
     let description = [];
     let setDescription = false;
     argsArray.forEach(word => {
-      if(isUrl(word) && !setDescription){
+      if(isUrl(word) && isFile(word) && !setDescription){
         links.push(word);
         setDescription = true;
         return;
@@ -168,7 +190,7 @@ module.exports = function(){
         descriptions.push(description.splice(0,description.length));
         return;
       }
-      if (isUrl(word) && setDescription) {
+      if (isUrl(word) && isFile(word) && setDescription) {
         links.push(word);
         descriptions.push(description.splice(0,description.length));
         return;
@@ -242,6 +264,19 @@ module.exports = function(){
       })
       descriptions.push(description);
       return descriptions;
+    }
+
+    this.isFile = function(link){
+      var ext = ['.jpg', '.gif', '.png', '.jpeg', '.tif','tiff', 'bmp'];
+      var check = false;
+      for (var i = 0; i < ext.length; i++) {
+        if(link.endsWith(ext[i]))
+        {
+          check = true;
+          break;
+        }
+      }
+        return check;
     }
 
 
