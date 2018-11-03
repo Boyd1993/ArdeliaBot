@@ -8,34 +8,46 @@ exports.run = (client, message, args, guildConfig) => {
   birthdayList.importFile(file);
 
   if (args[1] === "add"){
-    let day = args[2];
-    let month = args[3];
-    let year = args[4];
-    if(!birthdayList.checkMemberList(message.member.id)[0]){
+    let day = parseInt(args[2]);
+    let month = parseInt(args[3]);
+    let year = parseInt(args[4]);
+    if (message.mentions.members.size !== 0 && isEditor(message.member, guildConfig)){
+      var member = message.mentions.members.first();
+    }
+    else{
+      var member = message.member;
+    }
+    if(!birthdayList.checkMemberList(member.id)[0]){
       if(validDate(day, month, year)){
-        birthdayList.add(message.member.id, day, month, year);
+        birthdayList.add(member.id, day, month, year);
         fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
-          message.channel.send(message.member.displayName + "--> Your birthday has been added");
+          message.channel.send(member.displayName + "\'s birthday is added");
           const reloadjson = client.commands.get('reloadjsonbirthdays');
           reloadjson.run(client, message,args , guildConfig, true);
         });
       }
-      else{message.channel.send('Unvalid date');}
+      else{message.channel.send('Unvalid date. Please put in a valid date with a space as separator (dd mm (yyyy). Editors: put the name of the member after the date');}
     }
-    else{message.channel.send('You already added your birthday.');}
+    else{message.channel.send(member.displayName + '\'s birthday already added');}
   }
 
   if (args[1] === "del"){
-    if(birthdayList.checkMemberList(message.member.id)[0]){
-      birthdayList.del(message.member.id);
+    if (message.mentions.members.size !== 0 && isEditor(message.member, guildConfig)){
+      var member = message.mentions.members.first();
+    }
+    else{
+      var member = message.member;
+    }
+    if(birthdayList.checkMemberList(member.id)[0]){
+      birthdayList.del(member.id);
       fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
-        message.channel.send(message.member.displayName + "--> Your birthday has been deleted");
+        message.channel.send(member.displayName + "\'s birthday is deleted");
         const reloadjson = client.commands.get('reloadjsonbirthdays');
         reloadjson.run(client, message,args , guildConfig, true);
       });
 
     }
-    else{message.channel.send('You have not added your birthday.');}
+    else{message.channel.send(member.displayName + '\s birthday is not added');}
   }
 
   if(args[1] === "addimg" && isEditor(message.member, guildConfig)){
