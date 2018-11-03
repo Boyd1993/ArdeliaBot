@@ -164,8 +164,8 @@ module.exports = function(){
     }
   }
 
-  this.getChannel = function(channelID, messageObj){
-    let channels = messageObj.guild.channels;
+  this.getChannel = function(channelID, guild){
+    let channels = guild.channels;
     let channel = channels.get(channelID);
 
     return channel;
