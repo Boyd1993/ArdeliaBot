@@ -16,7 +16,6 @@ function displayDate(){
   }
   else{
     let currentDate = new Date();
-    console.log(currentDate.getUTCMonth());
     if ((currentDate.getUTCMonth()+1 == this.month && currentDate.getUTCDate() >= this.day) || currentDate.getUTCMonth()+1 > this.month){
       let date = this.day +"-"+ this.month + "-" + this.year + "--> Did become " + (currentDate.getUTCFullYear() - this.year) + " years old";
       return date;
