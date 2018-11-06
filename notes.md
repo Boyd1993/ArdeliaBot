@@ -1,3 +1,13 @@
+# 1.3.0
+- Welcome module added! See !help welcome for instructions.
+- Chaned timer of birthday so it won't load infinite birthday programs.
+
+# 1.2.1
+- Fixed crash when asking for the list.
+- Editors can add and delete birthdays.
+- Improved date checking.
+- More clear age discription in list.
+
 # 1.2.0
 - Added birthday module. For more info use !help birthday.
 - Made it such that only links are accepted that are directly directed towards an image.

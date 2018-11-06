@@ -134,8 +134,8 @@ module.exports = function(){
   this.lineGen = function(argsArray,messageObj){
     let outputString = "";
     argsArray.forEach(word => {
-      if(word === '$(1)'){
 
+      if(word === '$(1)'){
         outputString=outputString + "**" + messageObj.member.displayName + "** ";
         return;
       }
@@ -169,6 +169,15 @@ module.exports = function(){
     let channel = channels.get(channelID);
 
     return channel;
+  }
+
+  this.getRoles = function(ids, guild){
+    let roles = guild.roles;
+    let roleList = [];
+    ids.forEach(id => {
+      roleList.push(roles.get(id).name);
+    })
+    return roleList;
   }
 
   this.linkSplitter = function(argsArray,messageObj){
@@ -276,7 +285,7 @@ module.exports = function(){
           break;
         }
       }
-        return check;
+      return check;
     }
 
 

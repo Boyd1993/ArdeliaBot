@@ -173,7 +173,6 @@ function chooseLinkDescription(id = -1, fileDescrId = -1, descrId = -1){
 
 function botFileDescriptionList(messageObj,client){
   var list = "";
-  client.user.settings.inlineEmbedMedia = false;
   this.botFiles.forEach(function(botFile,i) {
     if (list.length > 800){
       messageObj.author.send(list);
@@ -185,7 +184,6 @@ function botFileDescriptionList(messageObj,client){
     })
   })
     messageObj.author.send(list);
-    client.user.settings.inlineEmbedMedia = true;
 }
 
 function descriptionsList(){
