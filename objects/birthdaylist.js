@@ -94,7 +94,6 @@ function getName(memberId, guild){
   let memberArray = guild.members;
   let wantedMember = memberArray.get(memberId).displayName;
   return wantedMember;
-}
 
 function imgList(messageObj){
   const embed = new Discord.RichEmbed;
@@ -124,16 +123,22 @@ function list(messageObj){
   let embedArray = [embed];
   let j = 0;
   let k = 0;
-  embedArray[0].setTitle('List with birthdays in DD-MM-YYYY')
+  embedArray[0].setTitle('List with birthdays in DD-MM-(YYYY)')
   for(var i = 0; i < this.birthdays.length; i++){
     if (j === 24){
       j=0;
-      embedArray[k].addField(getName(this.birthdays[i].member, messageObj), this.birthdays[i].displayDate());
-      embedArray.push(new Discord.RichEmbed());
-      k++;
-      return;
+      let member = getName(this.birthdays[i].member, messageObj);
+      if(member !== false){
+        embedArray[k].addField(member, this.birthdays[i].displayDate());
+        embedArray.push(new Discord.RichEmbed());
+        k++;
+        return;
+      }
     }
-    embedArray[k].addField(getName(this.birthdays[i].member, messageObj), this.birthdays[i].displayDate());
+    let member = getName(this.birthdays[i].member, messageObj);
+    if(member !== false){
+      embedArray[k].addField(member, this.birthdays[i].displayDate());
+    }
     j++
   }
   embedArray.forEach(function(embed,i) {
@@ -145,7 +150,7 @@ function list(messageObj){
 function settingsList(messageObj){
   let list ="birthdaymessage: " + this.birthdayMessage  + "\nannouncechannel: #" + getChannel(this.announceChannel, messageObj.guild).name +
   "\nhour: " + this.announceTimeHour + "\nmin: " + this.announceTimeMin + "\nmentioneveryone: " + this.tagEveryone + "\ncolor: " + this.color;
-   messageObj.channel.send(list);
+  messageObj.channel.send(list);
 }
 
 function getBirthdays(){

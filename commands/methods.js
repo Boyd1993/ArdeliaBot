@@ -3,17 +3,41 @@ module.exports = function(){
 
   this.validDate = function(day, month, year){
     let check = false;
-    if(!isNaN(day) && day > 0 && day <= 31 ){
+    if(!isNaN(month) && month > 0 && month <= 12 ){
 
-      if(!isNaN(month) && month > 0 && month <= 12){
+      if(!isNaN(day) && day > 0 && day <= 31){
         let date = new Date();
-
-        if(!isNaN(year) && (year > 1900 && year <= date.getUTCFullYear()) || year == undefined){
+        if((!isNaN(year) && (year > 1900 && year <= date.getUTCFullYear()) || year == undefined) && dateCheck(day, month, year)){
           check = true;
         }
       }
     }
     return check;
+  }
+
+  this.dateCheck = function(day, month, year = 2000){
+    let check = false;
+    if(month == 1 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 2 && day > 0 && day <= 29){
+      if((((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) && day <= 29 ){
+        check = true;
+        return check;
+      }
+      else if (day <= 28){
+        check = true;
+        return check;
+      }
+    }
+    if(month == 3 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 4 && day > 0 && day <= 30){check = true; return check;}
+    if(month == 5 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 6 && day > 0 && day <= 30){check = true; return check;}
+    if(month == 7 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 8 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 9 && day > 0 && day <= 30){check = true; return check;}
+    if(month == 10 && day > 0 && day <= 31){check = true; return check;}
+    if(month == 11 && day > 0 && day <= 30){check = true; return check;}
+    if(month == 12 && day > 0 && day <= 31){check = true; return check;}
   }
 
   this.getRoleNames = function(roleList){

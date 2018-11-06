@@ -1,3 +1,4 @@
+
 # 1.3.0
 - Welcome module added! See !help welcome for instructions.
 - Chaned timer of birthday so it won't load infinite birthday programs.
