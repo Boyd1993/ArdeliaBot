@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
+const path = require('path');
 
 require('dotenv').config()
-require('http').createServer().listen(3000)
 
 const client = new Discord.Client();
 console.log("Ardelia is now online!");
@@ -30,5 +30,16 @@ fs.readdir("./commands/", (err, files) => {
     client.commands.set(commandName, props);
   });
 });
+
+var myVar = setInterval(myTimer, 60000);
+
+function myTimer()
+{
+  let keys = client.guilds;
+  keys.tap(guild => {
+    let birthdayCom = require(path.join(__dirname, '.','savefiles', guild.id, 'commands', 'birthday.js'));
+    birthdayCom.run(client, guild, 'index', 'index' )
+  })
+}
 
 client.login(process.env.TOKEN);

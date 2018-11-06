@@ -158,8 +158,8 @@ module.exports = function(){
   this.lineGen = function(argsArray,messageObj){
     let outputString = "";
     argsArray.forEach(word => {
-      if(word === '$(1)'){
 
+      if(word === '$(1)'){
         outputString=outputString + "**" + messageObj.member.displayName + "** ";
         return;
       }
@@ -188,11 +188,20 @@ module.exports = function(){
     }
   }
 
-  this.getChannel = function(channelID, messageObj){
-    let channels = messageObj.guild.channels;
+  this.getChannel = function(channelID, guild){
+    let channels = guild.channels;
     let channel = channels.get(channelID);
 
     return channel;
+  }
+
+  this.getRoles = function(ids, guild){
+    let roles = guild.roles;
+    let roleList = [];
+    ids.forEach(id => {
+      roleList.push(roles.get(id).name);
+    })
+    return roleList;
   }
 
   this.linkSplitter = function(argsArray,messageObj){

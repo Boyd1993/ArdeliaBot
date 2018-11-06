@@ -156,10 +156,9 @@ exports.run = (client, message, args, guildConfig) => {
     birthdayList.announceBirthdays(message);
   }
 
-  var myVar = setInterval(myTimer, 60000);
 
-  function myTimer()
-  {
+
+  if (guildConfig === "index"){
     var date = new Date();
     var hour = date.getUTCHours();
     var min = date.getUTCMinutes();
@@ -175,10 +174,11 @@ exports.run = (client, message, args, guildConfig) => {
       birthdayList.announcedToday = false;
       fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
         const reloadjson = client.commands.get('reloadjsonbirthdays');
-        reloadjson.run(client, message,args , guildConfig, true);
+        reloadjson.run(client, message, args , guildConfig, true);
       });
     }
   }
+
 
   function correctForTime(hour){
     if(hour >= 24){

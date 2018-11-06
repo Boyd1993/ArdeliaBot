@@ -90,18 +90,10 @@ function checkMemberList(member){
   return [check,Id];
 }
 
-function getName(memberId, messageObj){
-  let memberArray = messageObj.guild.members;
-  let wantedMember = memberArray.get(memberId)
-  if(wantedMember !== undefined){
-    let toReturn = wantedMember.displayName;
-    return toReturn;
-  }
-  else{
-    let toReturn = false;
-    return toReturn;
-  }
-}
+function getName(memberId, guild){
+  let memberArray = guild.members;
+  let wantedMember = memberArray.get(memberId).displayName;
+  return wantedMember;
 
 function imgList(messageObj){
   const embed = new Discord.RichEmbed;
@@ -156,7 +148,7 @@ function list(messageObj){
 }
 
 function settingsList(messageObj){
-  let list ="birthdaymessage: " + this.birthdayMessage  + "\nannouncechannel: #" + getChannel(this.announceChannel, messageObj).name +
+  let list ="birthdaymessage: " + this.birthdayMessage  + "\nannouncechannel: #" + getChannel(this.announceChannel, messageObj.guild).name +
   "\nhour: " + this.announceTimeHour + "\nmin: " + this.announceTimeMin + "\nmentioneveryone: " + this.tagEveryone + "\ncolor: " + this.color;
   messageObj.channel.send(list);
 }
@@ -173,13 +165,13 @@ function getBirthdays(){
   return today;
 }
 
-function announceBirthdays(messageObj){
+function announceBirthdays(guild){
   require(path.join(__dirname,'..','commands','methods.js'))();
   const embed = new Discord.RichEmbed;
   var rand = Math.floor(Math.random() * this.images.length)
   let embedArray = [embed];
   let toAnnounce = this.getBirthdays();
-  let announceChannel = getChannel(this.announceChannel, messageObj);
+  let announceChannel = getChannel(this.announceChannel, guild);
   let j = 0;
   let k = 0;
   if (this.tagEveryone){
@@ -189,12 +181,12 @@ function announceBirthdays(messageObj){
   for(var i = 0; i < toAnnounce.length; i++){
     if (j === 24){
       j=0;
-      embedArray[k].addField(getName(toAnnounce[i].member, messageObj), toAnnounce[i].showAge() );
+      embedArray[k].addField(getName(toAnnounce[i].member, guild), toAnnounce[i].showAge() );
       embedArray.push(new Discord.RichEmbed());
       k++;
       return;
     }
-    embedArray[k].addField(getName(toAnnounce[i].member, messageObj), toAnnounce[i].showAge() );
+    embedArray[k].addField(getName(toAnnounce[i].member, guild), toAnnounce[i].showAge() );
     j++
   }
   for(var l = 0; l < embedArray.length; l++){

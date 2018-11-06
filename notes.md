@@ -1,3 +1,8 @@
+
+# 1.3.0
+- Welcome module added! See !help welcome for instructions.
+- Chaned timer of birthday so it won't load infinite birthday programs.
+
 # 1.2.1
 - Fixed crash when asking for the list.
 - Editors can add and delete birthdays.

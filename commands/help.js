@@ -12,6 +12,15 @@ exports.run = (client, message, args, guildConfig) => {
     return;
   }
 
+  if(args[0] === 'welcome' && isEditor(message.member, guildConfig)){
+    channelWithText.fetchMessage("509499015620984842")
+    .then(messageToSend => {
+      const fetchedMsgContent = messageToSend.content
+      message.author.send(fetchedMsgContent);
+    })
+    return;
+  }
+
   if(isModerator(message.member,guildConfig)){
     channelWithText.fetchMessage("488492559648161794")
     .then(messageToSend => {
