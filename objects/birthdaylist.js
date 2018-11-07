@@ -94,6 +94,7 @@ function getName(memberId, guild){
   let memberArray = guild.members;
   let wantedMember = memberArray.get(memberId).displayName;
   return wantedMember;
+}
 
 function imgList(messageObj){
   const embed = new Discord.RichEmbed;
