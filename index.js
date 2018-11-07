@@ -37,8 +37,11 @@ function myTimer()
 {
   let keys = client.guilds;
   keys.tap(guild => {
-    let birthdayCom = require(path.join(__dirname, '.','savefiles', guild.id, 'commands', 'birthday.js'));
-    birthdayCom.run(client, guild, 'index', 'index' )
+    fs.access(path.join(__dirname, '.','savefiles', guild.id, 'commands', 'birthday.js'), fs.constants.F_OK, (err) =>{
+      if(err){console.error; return;}
+      let birthdayCom = require(path.join(__dirname, '.','savefiles', guild.id, 'commands', 'birthday.js'));
+      birthdayCom.run(client, guild, 'index', 'index' )
+    });
   })
 }
 
