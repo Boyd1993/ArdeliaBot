@@ -1,5 +1,8 @@
+# 1.3.2
+- Fixed another crash in birthday module.
+
 # 1.3.1
-- Fixed crash if a guild has not birthday module enabled. 
+- Fixed crash if a guild has not birthday module enabled.
 
 # 1.3.0
 - Welcome module added! See !help welcome for instructions.
