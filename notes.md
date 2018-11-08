@@ -1,3 +1,7 @@
+# 1.3.3
+- Fixed crash when new guild started using ArdeliaBot
+- Made setting that welcome module can be used to only assign roles automatically.
+
 # 1.3.2
 - Fixed another crash in birthday module.
 
