@@ -148,6 +148,23 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
         });
       }
 
+      if (args[0] === 'setmessageenabled') {
+        let setting = args[1];
+        if(setting === 'true'  ){
+          welcomeFile.messageEnabled = true;
+          fs.writeFile(filePath, JSON.stringify(welcomeFile, null, ' '), (err) =>{
+            message.channel.send("Welcome messages are enabled").catch(console.error);
+          });
+        }
+        else if(setting === 'false' ){
+          welcomeFile.messageEnabled = false;
+          fs.writeFile(filePath, JSON.stringify(welcomeFile, null, ' '), (err) =>{
+            message.channel.send("Welcome messages are disabled").catch(console.error);
+          });
+        }
+        else{message.channel.send("Please give a valid input. Use either 'true' or 'false'")}
+      }
+
       if(args[0] === 'setdelay' && isEditor(message.member, guildConfig)){
         let delay = args[1];
         if(!isNaN(delay)){
@@ -182,25 +199,27 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
       }
 
       if (args[0] === 'settings' && isEditor(message.member, guildConfig)){
-        message.channel.send("roles: " + getRoles(welcomeFile.roles, message.guild).join(', ') + "\ndelay: " + welcomeFile.delay +
+        message.channel.send("messageenabled: " + welcomeFile.messageEnabled +"\nroles: " + getRoles(welcomeFile.roles, message.guild).join(', ') + "\ndelay: " + welcomeFile.delay +
         "\nannouncechannel: " + getChannel(welcomeFile.announceChannel, message.guild) + "\ncolor: " + welcomeFile.color);
       }
 
-      if(args[0] === 'announce' && toAnnounce){
-        const Discord = require("discord.js");
-        const embed = new Discord.RichEmbed;
-        let messageID = Math.floor(Math.random() * welcomeFile.messages.length);
-        let linkID = Math.floor(Math.random() * welcomeFile.links.length);
-        embed.setTitle("Welcome **" + message.member.displayName + "** to **" + message.guild.name + "**!")
-        if(welcomeFile.messages.length != 0){
-          let description = welcomeFile.messages[messageID];
-          embed.setDescription(lineGen(description, message))
+      if(args[0] === 'announce' || toAnnounce){
+        if(welcomeFile.messageEnabled){
+          const Discord = require("discord.js");
+          const embed = new Discord.RichEmbed;
+          let messageID = Math.floor(Math.random() * welcomeFile.messages.length);
+          let linkID = Math.floor(Math.random() * welcomeFile.links.length);
+          embed.setTitle("Welcome **" + message.member.displayName + "** to **" + message.guild.name + "**!")
+          if(welcomeFile.messages.length != 0){
+            let description = welcomeFile.messages[messageID];
+            embed.setDescription(lineGen(description, message))
+          }
+          if(welcomeFile.links.length != 0){
+            let link = welcomeFile.links[linkID];
+            embed.setImage(link);
+          }
+          getChannel(welcomeFile.announceChannel, message.guild).send(embed);
         }
-        if(welcomeFile.links.length != 0){
-          let link = welcomeFile.links[linkID];
-          embed.setImage(link);
-        }
-        getChannel(welcomeFile.announceChannel, message.guild).send(embed);
         message.member.setRoles(welcomeFile.roles)
         .then()
         .catch(console.error);
@@ -223,11 +242,12 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
   }
 
   if(args[0] === 'enable' && isAdmin(message.member)){
-    function Welcome(announceChannel, delay = 0, enabled = false, color = 16737445 ){
+    function Welcome(announceChannel, delay = 0, enabled = false, color = 16737445, messageEnabled = true ){
       this.messages = [];
       this.links = [];
       this.roles =[];
       this.announceChannel = announceChannel;
+      this.messageEnabled = messageEnabled;
       this.delay = delay
       this.enabled = enabled;
       this.color = color;
