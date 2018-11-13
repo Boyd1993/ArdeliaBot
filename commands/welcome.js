@@ -184,7 +184,7 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
         let newColor = args[1];
         if (!isNaN(newColor)   ) {
           if(newColor > 0 && newColor <= 16777215){
-            welcomeFile.color = newColor;
+            welcomeFile.color = parseInt(newColor);
             fs.writeFile(filePath, JSON.stringify(welcomeFile, null, ' '), (err) =>{
               message.channel.send('The color is set to ' + newColor).catch(console.error);
             });
