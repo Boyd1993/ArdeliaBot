@@ -1,3 +1,6 @@
+# 1.3.5
+- Fixed a bug with saving the color.
+
 # 1.3.4
 - Fixed a bug that caused the embed color to not display.
 
