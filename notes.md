@@ -1,3 +1,6 @@
+# 1.3.4
+- Fixed a bug that caused the embed color to not display.
+
 # 1.3.3
 - Fixed crash when new guild started using ArdeliaBot
 - Made setting that welcome module can be used to only assign roles automatically.

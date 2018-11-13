@@ -209,10 +209,11 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
           const embed = new Discord.RichEmbed;
           let messageID = Math.floor(Math.random() * welcomeFile.messages.length);
           let linkID = Math.floor(Math.random() * welcomeFile.links.length);
-          embed.setTitle("Welcome **" + message.member.displayName + "** to **" + message.guild.name + "**!")
+          embed.setTitle("Welcome **" + message.member.displayName + "** to **" + message.guild.name + "**!");
+          embed.setColor(welcomeFile.color);
           if(welcomeFile.messages.length != 0){
             let description = welcomeFile.messages[messageID];
-            embed.setDescription(lineGen(description, message))
+            embed.setDescription(lineGen(description, message));
           }
           if(welcomeFile.links.length != 0){
             let link = welcomeFile.links[linkID];
