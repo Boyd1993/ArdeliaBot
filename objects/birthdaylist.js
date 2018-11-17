@@ -92,8 +92,14 @@ function checkMemberList(member){
 
 function getName(memberId, guild){
   let memberArray = guild.members;
-  let wantedMember = memberArray.get(memberId).displayName;
-  return wantedMember;
+  let wantedMember = memberArray.get(memberId)
+  if(wantedMember == undefined){
+    return false;
+  }
+  else{
+    wantedMember = wantedMember.displayName;
+    return wantedMember;
+  }
 }
 
 function imgList(messageObj){
@@ -128,7 +134,7 @@ function list(messageObj){
   for(var i = 0; i < this.birthdays.length; i++){
     if (j === 24){
       j=0;
-      let member = getName(this.birthdays[i].member, messageObj);
+      let member = getName(this.birthdays[i].member, messageObj.guild);
       if(member !== false){
         embedArray[k].addField(member, this.birthdays[i].displayDate());
         embedArray.push(new Discord.RichEmbed());
@@ -136,7 +142,7 @@ function list(messageObj){
         return;
       }
     }
-    let member = getName(this.birthdays[i].member, messageObj);
+    let member = getName(this.birthdays[i].member, messageObj.guild);
     if(member !== false){
       embedArray[k].addField(member, this.birthdays[i].displayDate());
     }

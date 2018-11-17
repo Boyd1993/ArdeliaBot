@@ -1,3 +1,7 @@
+# 1.3.6
+- Fixed a bug that with calling the birthday list.
+- Fixed a bug that crashed the client when adding a new birthday.
+
 # 1.3.5
 - Fixed a bug with saving the color.
 
@@ -16,13 +20,13 @@
 
 # 1.3.0
 - Welcome module added! See !help welcome for instructions.
-- Chaned timer of birthday so it won't load infinite birthday programs.
+- Changed timer of birthday so it won't load infinite birthday programs.
 
 # 1.2.1
 - Fixed crash when asking for the list.
 - Editors can add and delete birthdays.
 - Improved date checking.
-- More clear age discription in list.
+- More clear age description in list.
 
 # 1.2.0
 - Added birthday module. For more info use !help birthday.
