@@ -4,7 +4,7 @@ exports.run = (client, message, args, guildConfig) => {
   if(isModerator(message.member,guildConfig)){
     const fs = require("fs");
     require('./methods.js')();
-    let roleToChange = args.slice(1, args.length);
+    let roleToChange = args.slice(1, args.length).join(' ');
 
     if (args[0] === 'addModerator'){
       if(checkRoleExist(roleToChange,getRoleNames(message.guild.roles))){
