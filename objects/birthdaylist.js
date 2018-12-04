@@ -47,7 +47,7 @@ function set(setting, newSetting, messageObj, client, args, guildConfig){
   fs.writeFile(path.join(__dirname,'..', 'savefiles', messageObj.guild.id ,'birthdays.json'), JSON.stringify(this, null , ' '), (err) =>{
     messageObj.channel.send(messageObj.member.displayName + "--> " + setting +" has been updated to: " + newSetting);
     const reloadjson = client.commands.get('reloadjsonbirthdays');
-    reloadjson.run(client, messageObj, args , guildConfig, true);
+    reloadjson.run(client, messageObj.guild, args , guildConfig, true);
   });
 }
 

@@ -23,7 +23,7 @@ exports.run = (client, message, args, guildConfig) => {
         fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
           message.channel.send(member.displayName + "\'s birthday is added");
           const reloadjson = client.commands.get('reloadjsonbirthdays');
-          reloadjson.run(client, message,args , guildConfig, true);
+          reloadjson.run(client, message.guild,args , guildConfig, true);
         });
       }
       else{message.channel.send('Unvalid date. Please put in a valid date with a space as separator (dd mm (yyyy). Editors: put the name of the member after the date');}
@@ -43,7 +43,7 @@ exports.run = (client, message, args, guildConfig) => {
       fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
         message.channel.send(member.displayName + "\'s birthday is deleted");
         const reloadjson = client.commands.get('reloadjsonbirthdays');
-        reloadjson.run(client, message,args , guildConfig, true);
+        reloadjson.run(client, message.guild,args , guildConfig, true);
       });
 
     }
@@ -58,7 +58,7 @@ exports.run = (client, message, args, guildConfig) => {
     fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
       message.channel.send(message.member.displayName + "-->" + validLinks.length + "/" + links.length + "images has been added");
       const reloadjson = client.commands.get('reloadjsonbirthdays');
-      reloadjson.run(client, message,args , guildConfig, true);
+      reloadjson.run(client, message.guild,args , guildConfig, true);
     });
   }
 
@@ -69,7 +69,7 @@ exports.run = (client, message, args, guildConfig) => {
     fs.writeFile(path.join(__dirname,'..','birthdays.json'), JSON.stringify(birthdayList, null , ' '), (err) =>{
       message.channel.send(message.member.displayName + "-->" + (IDs.length-fails) + "/" + IDs.length + "images has been deleted");
       const reloadjson = client.commands.get('reloadjsonbirthdays');
-      reloadjson.run(client, message,args , guildConfig, true);
+      reloadjson.run(client, message.guild,args , guildConfig, true);
     });
   }
 
