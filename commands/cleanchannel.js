@@ -1,5 +1,5 @@
 exports.run = (client, message, args, guildConfig) => {
-  if(message.guild.id == 525229064064073738){
+  if(message.guild.id == 327540188807036929){
     if(message.channel.id == 525229064064073738){
       message.channel.fetchMessages()
       .then(messages =>{
