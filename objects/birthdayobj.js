@@ -4,7 +4,12 @@ function Birthday(member, day, month, year = null){
   this.member = member;
   this.day = day;
   this.month = month;
-  this.year = year;
+  if (year == 99999999){
+    this.year = null;
+  }
+  else {
+    this.year = year;
+  }
   this.displayDate = displayDate;
   this.showAge = showAge;
 }

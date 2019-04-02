@@ -11,6 +11,9 @@ exports.run = (client, message, args, guildConfig) => {
     let day = parseInt(args[2]);
     let month = parseInt(args[3]);
     let year = parseInt(args[4]);
+    if (isNaN(year)){
+      year = 99999999;
+    }
     if (message.mentions.members.size !== 0 && isEditor(message.member, guildConfig)){
       var member = message.mentions.members.first();
     }

@@ -4,10 +4,9 @@ module.exports = function(){
   this.validDate = function(day, month, year){
     let check = false;
     if(!isNaN(month) && month > 0 && month <= 12 ){
-
       if(!isNaN(day) && day > 0 && day <= 31){
         let date = new Date();
-        if((!isNaN(year) && (year > 1900 && year <= date.getUTCFullYear()) || year == undefined) && dateCheck(day, month, year)){
+        if(((!isNaN(year) && (year > 1900 && year <= date.getUTCFullYear())) || year == 99999999) && dateCheck(day, month, year)){
           check = true;
         }
       }
@@ -17,6 +16,9 @@ module.exports = function(){
 
   this.dateCheck = function(day, month, year = 2000){
     let check = false;
+    if (year == 99999999){
+      year = 2000;
+    }
     if(month == 1 && day > 0 && day <= 31){check = true; return check;}
     if(month == 2 && day > 0 && day <= 29){
       if((((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) && day <= 29 ){
