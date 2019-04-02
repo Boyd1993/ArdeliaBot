@@ -120,7 +120,7 @@ exports.run = (client, message, args, guildConfig) => {
         });
       }
       else{
-        messageObj.channel.send('Something went wrong by editing the description. Make sure you picked a valid ID');
+        message.channel.send('Something went wrong by editing the description. Make sure you picked a valid ID');
       }
     }
 
