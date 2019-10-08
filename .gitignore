@@ -1,3 +1,5 @@
 *.env
 savefileconverter.js
 savefiles
+/.vs/ArdeliaBot/v16
+/.vs
