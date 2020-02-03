@@ -2,6 +2,7 @@
 *.vs
 savefileconverter.js
 savefiles
+savefiles\*
 /.vs/ArdeliaBot/v16
 /.vs
 logs/*.txt

@@ -4,14 +4,10 @@ module.exports.error = function (logMessage, guild) {
     const fs = require('fs');
     const logFilePath = path.join(__dirname, "..", "logs", `${getDateNowString()}.txt`);
 
-    try {
-        fs.appendFile(logFilePath, formatMessage(), (err) => {
-            console.error(err);
-        });
-    }
-    catch (e) {
-        console.error(e);
-    }
+    fs.appendFile(logFilePath, formatMessage(), (err) => {
+        console.error(err);
+    });
+
 
     function getDateNowString() {
         return new Date().toISOString()
