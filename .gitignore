@@ -4,3 +4,4 @@ savefileconverter.js
 savefiles
 /.vs/ArdeliaBot/v16
 /.vs
+logs/*.txt
