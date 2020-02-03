@@ -22,7 +22,7 @@ module.exports.error = function (logMessage, guild) {
         var dateString = new Date().toISOString()
             .replace(/T/, ' ')
             .replace(/\..+/, '');
-        return `${dateString}\t${guild.id}\t${guild.name}\tERROR:\t${logMessage}\n`
+        return `${dateString}\t${guild.id}\t${guild.name}\tERROR:\t${logMessage}\n`;
     }
 }
 
