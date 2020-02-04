@@ -17,7 +17,10 @@ module.exports = (client, message) => {
         // Grab the command data from the client.commands Enmap
         const cmd = client.commands.get(command);
         // If that command doesn't exist, silently exit and do nothing
-        if (!cmd) {
+        if (cmd) {
+            cmd.run(client, message, args, guildConfig);
+        }
+        else {
             fs.readdir("./savefiles/" + message.guild.id + "/commands/", (err, files) => {
                 if (err) return console.error(err);
                 files.forEach(file => {
@@ -28,12 +31,8 @@ module.exports = (client, message) => {
                         botComm.run(client, message, [command].concat(args), guildConfig);
                     }
                     else { return; }
-
                 });
             });
-        }
-        else {
-            cmd.run(client, message, args, guildConfig);
         }
     }
     catch (e) {
