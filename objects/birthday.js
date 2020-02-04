@@ -156,7 +156,7 @@ exports.run = (client, message, args, guildConfig) => {
     }
 
     if (args[1] === "announce" && (isAdmin(message.member, guildConfig) || message.member.user.id === client.user.id) && birthdayList.getBirthdays().length != 0) {
-        birthdayList.announceBirthdays(message);
+        birthdayList.announceBirthdays(message.guild);
     }
 
 

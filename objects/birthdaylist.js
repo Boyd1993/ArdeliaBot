@@ -2,7 +2,6 @@ const path = require('path');
 const Birthday = require(path.join(__dirname, '.', 'birthdayobj.js'));
 const Discord = require("discord.js");
 
-
 function BirthdayList(birthdayMessage, announceChannel, hour = 12, min = 0, color = '16737445') {
     this.birthdays = [];
     this.images = [];
@@ -132,7 +131,7 @@ function list(messageObj) {
     embedArray[0].setTitle('List with birthdays in DD-MM-(YYYY)')
     for (var i = 0; i <= this.birthdays.length; i++) {
         if (i === this.birthdays.length) {
-            callback(embedArray);
+            send(embedArray);
             return;
         }
         if (j === 24) {
@@ -152,8 +151,8 @@ function list(messageObj) {
         j++
     }
 
-    function callback(embedArray) {
-        embedArray.forEach(function (embed, i) {       
+    function send(embedArray) {
+        embedArray.forEach(function (embed, i) {
             embed.setFooter('page ' + (i + 1) + '/' + embedArray.length);
             messageObj.author.send(embed);
         });
@@ -190,23 +189,36 @@ function announceBirthdays(guild) {
     if (this.tagEveryone) {
         announceChannel.send('@everyone');
     }
+    console.log(this.images);
     embedArray[0].setTitle(this.birthdayMessage)
-    for (var i = 0; i < toAnnounce.length; i++) {
+    for (var i = 0; i <= toAnnounce.length; i++) {
+        if (i === toAnnounce.length) {
+            announce(embedArray, this.color, this.images);
+            return;
+        }
+        var parsedName = getName(toAnnounce[i].member, guild);
         if (j === 24) {
             j = 0;
-            embedArray[k].addField(getName(toAnnounce[i].member, guild), toAnnounce[i].showAge());
+            if (parsedName !== false) {
+                embedArray[k].addField(parsedName, toAnnounce[i].showAge());
+            }
+
             embedArray.push(new Discord.RichEmbed());
             k++;
             return;
         }
-        embedArray[k].addField(getName(toAnnounce[i].member, guild), toAnnounce[i].showAge());
+        if (parsedName !== false) {
+            embedArray[k].addField(parsedName, toAnnounce[i].showAge());
+        }
         j++
     }
-    for (var l = 0; l < embedArray.length; l++) {
-        embedArray[l].setColor(parseInt(this.color));
-        embedArray[l].setImage(this.images[rand]);
-        embedArray[l].setFooter('page ' + (l + 1) + '/' + embedArray.length);
-        announceChannel.send(embed);
+    function announce(embedArray, color, images) {
+        for (var l = 0; l < embedArray.length; l++) {
+            embedArray[l].setColor(parseInt(color));
+            embedArray[l].setImage(images[rand]);
+            embedArray[l].setFooter('page ' + (l + 1) + '/' + embedArray.length);
+            announceChannel.send(embed);
+        }
     }
 }
 
