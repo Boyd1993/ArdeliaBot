@@ -238,6 +238,9 @@ exports.run = (client, message, args, guildConfig, toAnnounce) => {
 
   }
   catch (e) {
+      if (e.code === 'MODULE_NOT_FOUND') {
+          console.error;
+      }
     console.log(e);
     console.error;
   }
