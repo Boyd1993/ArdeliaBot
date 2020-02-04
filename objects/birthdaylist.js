@@ -189,27 +189,26 @@ function announceBirthdays(guild) {
     if (this.tagEveryone) {
         announceChannel.send('@everyone');
     }
-    console.log(this.images);
     embedArray[0].setTitle(this.birthdayMessage)
     for (var i = 0; i <= toAnnounce.length; i++) {
         if (i === toAnnounce.length) {
-            announce(embedArray, this.color, this.images);
+            if (embedArray[k].fields.length !== 0) {
+                announce(embedArray, this.color, this.images);
+            }
             return;
         }
         var parsedName = getName(toAnnounce[i].member, guild);
-        if (j === 24) {
-            j = 0;
-            if (parsedName !== false) {
-                embedArray[k].addField(parsedName, toAnnounce[i].showAge());
-            }
 
+        if (parsedName === false) return;
+
+        if (j === 24) {
+
+            embedArray[k].addField(parsedName, toAnnounce[i].showAge());
             embedArray.push(new Discord.RichEmbed());
             k++;
             return;
         }
-        if (parsedName !== false) {
-            embedArray[k].addField(parsedName, toAnnounce[i].showAge());
-        }
+        embedArray[k].addField(parsedName, toAnnounce[i].showAge());
         j++
     }
     function announce(embedArray, color, images) {
