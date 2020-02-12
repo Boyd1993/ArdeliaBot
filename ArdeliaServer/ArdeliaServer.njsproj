@@ -1,0 +1,72 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>ArdeliaServer</Name>
+    <RootNamespace>ArdeliaServer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>5820fe35-948f-42c2-801f-7d3da9d50362</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>index.js</StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="commands\" />
+    <Folder Include="events\" />
+    <Folder Include="objects\" />
+    <Folder Include="util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="commands\addbotcom.js" />
+    <Content Include="commands\botcomm.js" />
+    <Content Include="commands\checkroles.js" />
+    <Content Include="commands\cleanchannel.js" />
+    <Content Include="commands\commands.js" />
+    <Content Include="commands\config.js" />
+    <Content Include="commands\delbotcom.js" />
+    <Content Include="commands\disablebirthday.js" />
+    <Content Include="commands\editconfig.js" />
+    <Content Include="commands\enablebirthday.js" />
+    <Content Include="commands\help.js" />
+    <Content Include="commands\methods.js" />
+    <Content Include="commands\ping.js" />
+    <Content Include="commands\reload.js" />
+    <Content Include="commands\reloadjson.js" />
+    <Content Include="commands\reloadjsonbirthdays.js" />
+    <Content Include="commands\welcome.js" />
+    <Content Include="events\guildCreate.js" />
+    <Content Include="events\guildMemberAdd.js" />
+    <Content Include="events\message.js" />
+    <Content Include="events\ready.js" />
+    <Content Include="index.js" />
+    <Content Include="notes.md" />
+    <Content Include="objects\birthday.js" />
+    <Content Include="objects\birthdaylist.js" />
+    <Content Include="objects\birthdayobj.js" />
+    <Content Include="objects\botcommand.js" />
+    <Content Include="objects\botcommandfile.js" />
+    <Content Include="objects\botfile.js" />
+    <Content Include="objects\ping.js" />
+    <Content Include="objects\test.js" />
+    <Content Include="package.json" />
+    <Content Include="util\logger.js" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+</Project>

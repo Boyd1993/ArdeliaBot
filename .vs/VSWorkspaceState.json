@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Ardelia",
+    "\\Ardelia\\e2e\\src",
+    "\\Ardelia\\src",
+    "\\Ardelia\\src\\app",
+    "\\commands",
+    "\\events",
+    "\\logs",
+    "\\objects"
+  ],
+  "SelectedNode": "\\Ardelia\\src\\app\\app.module.ts",
+  "PreviewInSolutionExplorer": false
+}
