@@ -5,4 +5,4 @@ savefiles
 savefiles\*
 /.vs/ArdeliaBot/v16
 /.vs
-logs/*.txt
+ArdeliaServer/logs/*.txt
