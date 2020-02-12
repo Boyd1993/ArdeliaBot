@@ -28,12 +28,28 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="api\controllers\" />
+    <Folder Include="api\models\" />
+    <Folder Include="api\routes\" />
     <Folder Include="commands\" />
     <Folder Include="events\" />
+    <Folder Include="api\" />
     <Folder Include="objects\" />
     <Folder Include="util\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="api\controllers\birthdaysController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="api\controllers\botCommandsController.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="api\routes\birthdaysRoutes.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="api\routes\botCommandsRoutes.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="commands\addbotcom.js" />
     <Content Include="commands\botcomm.js" />
     <Content Include="commands\checkroles.js" />

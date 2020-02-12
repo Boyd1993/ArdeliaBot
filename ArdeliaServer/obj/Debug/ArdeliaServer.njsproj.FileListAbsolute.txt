@@ -1,0 +1,2 @@
+E:\ArdeliaBot\ArdeliaServer\obj\Debug\ArdeliaServer.njsprojAssemblyReference.cache
+E:\ArdeliaBot\ArdeliaServer\bin\Microsoft.NodejsTools.WebRole.dll

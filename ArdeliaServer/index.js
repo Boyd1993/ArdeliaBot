@@ -2,8 +2,32 @@ const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
 const path = require('path');
-
 require('dotenv').config()
+
+//startup api
+try {
+    var express = require("express"),
+        app = express(),
+        port = process.env.PORT || 11111;
+
+    fs.readdir(path.join(__dirname, ".", "api", "routes/"), (err, files) => {
+        if (err) { console.error("Cannot read routes directory"); throw err; }
+        files.forEach(file => {
+            var routes = require(path.join(__dirname, ".", "api", "routes", file));
+            routes(app);
+            console.log(`${file} is registered to the api`);
+        });
+    });
+
+    app.listen(port);
+    console.log('Ardelia RESTful API server started on: ' + port);
+}
+catch (e) {
+    console.log(e);
+    console.error("Something went wrong with setting up the api.");
+}
+
+//startup bot server
 try {
     const client = new Discord.Client();
     console.log("Ardelia is now online!");
