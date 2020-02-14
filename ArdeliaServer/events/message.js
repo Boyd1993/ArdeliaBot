@@ -39,7 +39,8 @@ module.exports = (client, message) => {
         console.log(e);
         if (e.code === 'MODULE_NOT_FOUND') {
             const fs = require("fs");
-            require('../commands/methods.js')();
+            const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths.js"));
+            require(commonpaths.commonmethods)();
             const guildConfig = writeNewSaveFile(message.guild.id, fs);
             message.channel.send('For some reason I could not find a save file. I have created one for you! Please try to add commands again');
         }

@@ -4,6 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>ArdeliaServer</Name>
     <RootNamespace>ArdeliaServer</RootNamespace>
+    <NodejsPort>11121</NodejsPort>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -34,6 +35,7 @@
     <Folder Include="commands\" />
     <Folder Include="events\" />
     <Folder Include="api\" />
+    <Folder Include="common\" />
     <Folder Include="objects\" />
     <Folder Include="util\" />
   </ItemGroup>
@@ -61,12 +63,15 @@
     <Content Include="commands\editconfig.js" />
     <Content Include="commands\enablebirthday.js" />
     <Content Include="commands\help.js" />
-    <Content Include="commands\methods.js" />
+    <Content Include="common\methods.js" />
     <Content Include="commands\ping.js" />
     <Content Include="commands\reload.js" />
     <Content Include="commands\reloadjson.js" />
     <Content Include="commands\reloadjsonbirthdays.js" />
     <Content Include="commands\welcome.js" />
+    <Content Include="common\commonpaths.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="events\guildCreate.js" />
     <Content Include="events\guildMemberAdd.js" />
     <Content Include="events\message.js" />
@@ -79,8 +84,6 @@
     <Content Include="objects\botcommand.js" />
     <Content Include="objects\botcommandfile.js" />
     <Content Include="objects\botfile.js" />
-    <Content Include="objects\ping.js" />
-    <Content Include="objects\test.js" />
     <Content Include="package.json" />
     <Content Include="util\logger.js" />
   </ItemGroup>

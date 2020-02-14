@@ -1,7 +1,9 @@
 exports.run = (client, message, args, guildConfig) => {
 
   const channelWithText = client.guilds.get('487253159954219009').channels.get('488482833141202964');
-  require('./methods.js')();
+    const path = require("path");
+    const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths"));
+    require(commonpaths.commonMethods)();
 
   if(args[0] === 'birthday'){
     channelWithText.fetchMessage("506949090404204545")

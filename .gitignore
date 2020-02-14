@@ -6,3 +6,4 @@ savefiles\*
 /.vs/ArdeliaBot/v16
 /.vs
 ArdeliaServer/logs/*.txt
+*.suo

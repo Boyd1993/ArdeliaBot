@@ -4,11 +4,12 @@ exports.run = (client, message, args, guildConfig) => {
         const Discord = require("discord.js");
         const fs = require("fs");
         const path = require('path');
+        const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths.js"));
         var file = require(path.join(__dirname, '..', 'savefiles', message.guild.id, 'botcommands.json'));
         var BotCommandFile = require(path.join(__dirname, '..', 'objects', 'botcommandfile.js'));
         var botCommands = new BotCommandFile();
         botCommands.importFile(file);
-        require(path.join(__dirname, '.', 'methods.js'))();
+        require(commonpaths.commonMethods)();
         let wantedCommand = args[0];
         if (botCommands.has(wantedCommand)) {
 

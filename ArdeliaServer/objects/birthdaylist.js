@@ -178,7 +178,8 @@ function getBirthdays() {
 }
 
 function announceBirthdays(guild) {
-    require(path.join(__dirname, '..', 'commands', 'methods.js'))();
+    const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths"));
+    require(commonpaths.commonMethods)();
     const embed = new Discord.RichEmbed;
     var rand = Math.floor(Math.random() * this.images.length)
     let embedArray = [embed];

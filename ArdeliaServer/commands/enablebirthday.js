@@ -1,6 +1,7 @@
 exports.run = (client, message, args, guildConfig) => {
     const path = require('path');
-    require(path.join(__dirname, '.', 'methods.js'))();
+    const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths"));
+    require(commonpaths.commonMethods)();
     const logger = require(path.join(__dirname, '..', 'util', 'logger.js'));
 
     if (isAdmin(message.member, guildConfig)) {

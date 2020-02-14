@@ -1,10 +1,11 @@
 exports.run = (client, message, args, guildConfig) => {
     const path = require('path');
     const fs = require('fs');
-    require(path.join(__dirname, '..', 'commands', 'methods.js'))();
+    const commonpaths = require(path.join(__dirname, "..", "common", "commonpaths"));
+    require(commonpaths.commonMethods)();
     var birthdayJsonPath = path.join(__dirname, '..', 'savefiles', message.guild !== undefined ? message.guild.id : message.id, 'birthdays.json');
     var file = require(birthdayJsonPath);
-    var BirthdayList = require(path.join(__dirname,'.','birthdaylist.js'));
+    var BirthdayList = require(path.join(__dirname, '.', 'birthdaylist.js'));
     var birthdayList = new BirthdayList();
     birthdayList.importFile(file);
     if (args[1] === "add") {
