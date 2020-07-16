@@ -15,7 +15,7 @@
     "discord.js": "^11.4.2",
     "dotenv": "^6.0.0",
     "enmap": "^4.0.12",
-    "lodash": ">=4.17.12",
+    "lodash": ">=4.17.19",
     "micro": "latest",
     "npm": "^6.13.7",
     "promise": "^8.0.2"
