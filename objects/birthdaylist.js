@@ -130,31 +130,30 @@ function list(messageObj) {
     var k = 0;
     embedArray[0].setTitle('List with birthdays in DD-MM-(YYYY)')
     for (var i = 0; i <= this.birthdays.length; i++) {
+        console.log(i + "/" + this.birthdays.length + "/" + j);
         if (i === this.birthdays.length) {
+            console.log("going to send!");
             send(embedArray);
             return;
         }
-        if (j === 24) {
-            j = 0;
-            let member = getName(this.birthdays[i].member, messageObj.guild);
-            if (member !== false) {
-                embedArray[k].addField(member, this.birthdays[i].displayDate());
-                embedArray.push(new Discord.RichEmbed);
-                k++;
-                return;
-            }
-        }
+
         let member = getName(this.birthdays[i].member, messageObj.guild);
         if (member !== false) {
+            if (j === 25) {
+                j = 0;
+                embedArray.push(new Discord.RichEmbed);
+                k++;      
+            }
             embedArray[k].addField(member, this.birthdays[i].displayDate());
         }
-        j++
+        j++;
     }
 
     function send(embedArray) {
         embedArray.forEach(function (embed, i) {
             embed.setFooter('page ' + (i + 1) + '/' + embedArray.length);
             messageObj.author.send(embed);
+            console.log("send");
         });
     }
 }

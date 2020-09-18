@@ -1,3 +1,6 @@
+# 1.3.7
+- Fixed a bug that would not send birthday list if liost was longer than 25 birthdays.
+
 # 1.3.6
 - Fixed a bug that with calling the birthday list.
 - Fixed a bug that crashed the client when adding a new birthday.
