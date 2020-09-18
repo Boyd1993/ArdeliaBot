@@ -130,9 +130,7 @@ function list(messageObj) {
     var k = 0;
     embedArray[0].setTitle('List with birthdays in DD-MM-(YYYY)')
     for (var i = 0; i <= this.birthdays.length; i++) {
-        console.log(i + "/" + this.birthdays.length + "/" + j);
         if (i === this.birthdays.length) {
-            console.log("going to send!");
             send(embedArray);
             return;
         }
@@ -153,7 +151,6 @@ function list(messageObj) {
         embedArray.forEach(function (embed, i) {
             embed.setFooter('page ' + (i + 1) + '/' + embedArray.length);
             messageObj.author.send(embed);
-            console.log("send");
         });
     }
 }
