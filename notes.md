@@ -1,5 +1,6 @@
 # 1.3.7
 - Fixed a bug that would not send birthday list if liost was longer than 25 birthdays.
+- Updated npm modules for security reasons.
 
 # 1.3.6
 - Fixed a bug that with calling the birthday list.
