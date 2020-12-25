@@ -11,8 +11,8 @@
   "author": "bcv93",
   "license": "ISC",
   "dependencies": {
-    "bufferutil": "^3.0.3",
-    "discord.js": "^11.4.2",
+    "bufferutil": "^4.0.2",
+    "discord.js": "^11.6.4",
     "dotenv": "^6.0.0",
     "enmap": "^4.0.12",
     "lodash": ">=4.17.19",
